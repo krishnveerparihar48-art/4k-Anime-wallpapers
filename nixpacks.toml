@@ -1,24 +1,8 @@
-
-# Create FIXED nixpacks.toml with Python 3.11
-nixpacks_fixed = '''[phases.build]
-cmds = ["echo 'Build phase completed'"]
-
 [phases.setup]
-nixPkgs = ["python311", "gcc"]
+nixPkgs = ["python311"]
+
+[phases.build]
+cmds = ["pip install -r requirements.txt"]
 
 [start]
-cmd = "python bot.py"
-'''
-
-with open('/mnt/kimi/output/nixpacks.toml', 'w') as f:
-    f.write(nixpacks_fixed)
-
-print("✅ FIXED nixpacks.toml created!")
-print("\n🔧 Changes made:")
-print("  - Changed from 'python3' to 'python311'")
-print("  - This forces Railway to use Python 3.11 instead of 3.13")
-print("\n🚀 Next steps:")
-print("  1. Replace nixpacks.toml in your repo")
-print("  2. git add . && git commit -m 'Fix Python version'")
-print("  3. git push")
-print("  4. Railway will redeploy automatically")
+cmd = "python3.11 bot.py"
