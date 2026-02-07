@@ -1,0 +1,8 @@
+[phases.build]
+cmds = ["echo 'Build phase completed'"]
+
+[phases.setup]
+nixPkgs = ["python311", "gcc"]
+
+[start]
+cmd = "python bot.py"
